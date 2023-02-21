@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Chinook River Expeditions
+{% endblock %}
+
+{% block content %}
+    <h1>Customer Reviews Page</h1>
+    <ul>
+    {% for review in reviews %}
+    <li>
+        <h2>{{ review.title }}</h2>
+        <p>{{ review.text }}</p>
+        <p>Posted by {{ review.user.username }} on {{ review.created_at }}</p>
+    </li>
+{% endfor%}
+</ul>
+{% else %}
+    <p> No reviews yet.</p>
+    {% endif %}
+{% endblock %}
