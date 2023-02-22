@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Chinook River Expeditions
 {% endblock %}
 
 {% block content %}
+<div class="reviews">
     <h1>Customer Reviews Page</h1>
+    {% if reviews %}
     <ul>
     {% for review in reviews %}
-    <li>
-        <h2>{{ review.title }}</h2>
-        <p>{{ review.text }}</p>
+    <li class="review">
+        <h2 class="title">{{ review.title }}</h2>
+        <p class="rating">{{ review.rating }}</p>
+        <p class="content">{{ review.comment }}</p>
         <p>Posted by {{ review.user.username }} on {{ review.created_at }}</p>
     </li>
 {% endfor%}
@@ -18,4 +22,27 @@ Chinook River Expeditions
 {% else %}
     <p> No reviews yet.</p>
     {% endif %}
+
+    <div class="container">
+        <div id="testimonial-slider" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                {% for review in reviews %}
+                <button type="button" data-bs-target="#testimonial-slider" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></button>
+                {% endfor %}
+            </div>
+            <div class="carousel-inner">
+                {% for review in reviews %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <div class="testimonial">
+                        <p>{{ review.title }}</p>
+                        <p>{{ review.rating }}</p>
+                        <p>{{ review.comment }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

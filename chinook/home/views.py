@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Review
-from .forms import ReviewForm
+from home.forms import ReviewForm
 
 
 def home(request):
