@@ -1,3 +1,9 @@
+/* base.html */
+.navbar-brand {
+    font-weight: bold;
+    text-shadow: 0px 3px 5px #999;
+}
+
 /* reviews page */
 .reviews {
     padding: 50px;
