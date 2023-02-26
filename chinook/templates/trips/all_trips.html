@@ -4,7 +4,21 @@
 
 {% block content %}
 
-{% for trip in trips %}
-<div class="trip_display">
-    <h2>{{ trip.riverName</h2>
+<div class="row">
+    {% for river in rivers %}
+        <div class="col-sm-6 col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ river.name }}</h5>
+                    <p class="card-text">{{ river.description }}</p>
+                    <ul>
+                        {% for trip_type in river.triptype_set.all %}
+                        <li><a href="{% url 'trip_detail' trip_type.pk %}">{{ trip_type.name }}</a></li>
+                        {% endfor %} 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
 </div>
+{% endblock %}

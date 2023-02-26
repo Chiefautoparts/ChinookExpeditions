@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'trips',
     'shop.apps.ShopConfig',
     'sass_processor',
 ]
