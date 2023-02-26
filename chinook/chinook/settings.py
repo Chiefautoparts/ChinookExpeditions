@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -121,10 +120,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-SASS_PROCESOR_INCLUDE_DIRS = [
-    os.path.join(BASE_DIR, 'static/scss'),
-]
-SASS_PRECISION = 8
+# SASS_PROCESOR_INCLUDE_DIRS = [
+#     os.path.join(BASE_DIR, 'static/scss'),
+# ]
+# SASS_PRECISION = 8
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
